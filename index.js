@@ -6,7 +6,8 @@ const notifications = document.getElementById("notifications-text");
 const TBody = document.getElementById("tableBody");
 let guessAttempt = null;
 let isGameOver = false;
-
+guessForm.disabled = true;
+submitBtn.disabled = true;
 //holders
 let hiddenNum = null;
 
@@ -25,14 +26,16 @@ generateNumberBtn.addEventListener("click", function (e) {
   hiddenNum = parseInt(randNum);
   notifications.innerText = `You have generated a new number`;
   generateNumberBtn.disabled = true;
+  guessForm.disabled = false;
+  submitBtn.disabled = false;
 });
 // submitt btn
+
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
   parseInt(guessForm.value);
   console.log(guessForm.value);
   guessAttempt += 1;
-
   addLine();
 });
 
