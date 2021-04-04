@@ -29,7 +29,6 @@ submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
   parseInt(guessForm.value);
   console.log(guessForm.value);
-  notifications.innerText = `Your number is ${guessForm.value}`;
   guessAttempt += 1;
   addLine();
 });
@@ -41,5 +40,7 @@ function addLine() {
   TBody.append(tr);
   tr.append(th);
   th.scope = "row";
-  th.innerText = guessAttempt;
+  th.innerHTML = guessAttempt;
+  tr.append(td);
+  td.innerHTML = guessForm.value;
 }
