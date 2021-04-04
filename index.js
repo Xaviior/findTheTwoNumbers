@@ -5,7 +5,6 @@ const guessForm = document.querySelector("#guessNum");
 const notifications = document.getElementById("notifications-text");
 const TBody = document.getElementById("tableBody");
 let guessAttempt = null;
-let isGameOver = false;
 guessForm.disabled = true;
 submitBtn.disabled = true;
 //holders
@@ -21,9 +20,9 @@ function numbers() {
 // Number generator
 generateNumberBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  const randNum = Math.floor(Math.random() * 99) + 1;
+  const randNum = Math.floor(Math.random() * 90) + 10;
   console.log(randNum);
-  hiddenNum = randNum;
+  hiddenNum = randNum.toString();
   notifications.innerText = `You have generated a new number`;
   generateNumberBtn.disabled = true;
   guessForm.disabled = false;
@@ -33,8 +32,8 @@ generateNumberBtn.addEventListener("click", function (e) {
 
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  parseInt(guessForm.value);
-  console.log(guessForm.value);
+  guessForm.value.toString();
+  console.log(guessForm.value.toString());
   guessAttempt += 1;
   addLine();
 });
