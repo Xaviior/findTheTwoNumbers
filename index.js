@@ -23,7 +23,7 @@ generateNumberBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const randNum = Math.floor(Math.random() * 99) + 1;
   console.log(randNum);
-  hiddenNum = parseInt(randNum);
+  hiddenNum = randNum;
   notifications.innerText = `You have generated a new number`;
   generateNumberBtn.disabled = true;
   guessForm.disabled = false;
