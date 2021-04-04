@@ -1,0 +1,21 @@
+body {
+  font-family: "Open Sans", sans-serif;
+}
+.table {
+  width: 80vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header {
+  /* border: 1px solid red; */
+  margin: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.notifications {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+}
