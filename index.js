@@ -54,17 +54,25 @@ function addLine() {
 }
 
 function logic() {
+  if (chosenNum && hiddenNum === true) {
+    console.log("begge nummer er riktig");
+    notifications.innerText = `YOU WINN!!!`;
+  }
   if (chosenNum[0] === hiddenNum[0]) {
     console.log("Første Nummer er riktig, og riktig plass");
+    notifications.innerText = `A number is on the correct spot`;
   }
   if (chosenNum[1] === hiddenNum[1]) {
     console.log("Andre Nummer er riktig, og riktig plass");
+    notifications.innerText = `A number is on the correct spot`;
   }
   if (chosenNum[0] === hiddenNum[1]) {
     console.log("Ett Nummer er riktig, men på feil plass");
+    notifications.innerText = `A number is correct, but not the right spot`;
   }
   if (chosenNum[1] === hiddenNum[0]) {
     console.log("Ett Nummer er riktig, men på feil plass");
+    notifications.innerText = `A number is correct, but not the right spot`;
   }
 }
 
