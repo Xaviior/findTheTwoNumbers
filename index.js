@@ -44,7 +44,6 @@ function addLine(correctNumbers = 0, correctPosition = 0) {
   const correctNumbersCell = document.createElement("td");
   const correctPositionCell = document.createElement("td");
   tBody.append(tr);
-  tr.id = "test";
   tr.append(th);
   th.scope = "row";
   th.innerText = guessAttempt;
@@ -67,6 +66,10 @@ function checkResult() {
     notifications.innerText = `A number is on the correct spot`;
     correctNumbers = 1;
     correctPosition = 1;
+  } else if (chosenNum[0] === hiddenNum[1] && chosenNum[1] === hiddenNum[0]) {
+    notifications.innerText = `Two numbers is correct, but not the right spot`;
+    correctNumbers = 2;
+    correctPosition = 0;
   } else if (chosenNum[0] === hiddenNum[1] || chosenNum[1] === hiddenNum[0]) {
     notifications.innerText = `A number is correct, but not the right spot`;
     correctNumbers = 1;
