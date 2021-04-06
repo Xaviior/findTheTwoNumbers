@@ -20,7 +20,10 @@
   </head>
   <body>
     <header>
-      <button id="genBtn">Generate a new number</button>
+      <form>
+        <button id="genBtn">Generate a new number</button>
+        <button id="resetBtn">Reset Score Board</button>
+      </form>
       <form action="guessNum">
         <input
           type="text"
@@ -41,14 +44,7 @@
           <th scope="col">Correct Position</th>
         </tr>
       </thead>
-      <tbody id="tableBody">
-        <tr>
-          <th scope="row">Test</th>
-          <td>Test</td>
-          <td>Test</td>
-          <td>Test</td>
-        </tr>
-      </tbody>
+      <tbody id="tableBody"></tbody>
     </table>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
