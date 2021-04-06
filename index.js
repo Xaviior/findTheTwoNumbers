@@ -12,7 +12,6 @@ turnOff();
 function numbers() {
   const number = Math.floor(Math.random() * 99) + 1;
   return number;
-  console.log(number);
 }
 //buttons
 // Number generator
@@ -49,7 +48,6 @@ function addLine() {
   tr.append(td);
   td.innerHTML = guessForm.value;
 }
-
 function logic() {
   if (chosenNum === hiddenNum) {
     console.log("begge nummer er riktig");
