@@ -3,16 +3,12 @@ const generateNumberBtn = document.getElementById("genBtn");
 const submitBtn = document.getElementById("subBtn");
 const guessForm = document.querySelector("#guessNum");
 const notifications = document.getElementById("notifications-text");
-const TBody = document.getElementById("tableBody");
+const tBody = document.getElementById("tableBody");
 let guessAttempt = null;
 let hiddenNum = null;
 let chosenNum = null;
 turnOff();
-// Number Generator
-function numbers() {
-  const number = Math.floor(Math.random() * 99) + 1;
-  return number;
-}
+
 //buttons
 // Number generator
 generateNumberBtn.addEventListener("click", function (e) {
@@ -30,40 +26,52 @@ submitBtn.addEventListener("click", function (e) {
   guessForm.value.toString();
   console.log(guessForm.value.toString());
   guessAttempt += 1;
-  addLine();
   chosenNum = guessForm.value;
+  const result = checkResult();
+  addLine(...result);
   guessForm.value = "";
-  logic();
 });
 
-function addLine() {
+function addLine(correctNumbers = 0, correctPosition = 0) {
   const tr = document.createElement("tr");
   const th = document.createElement("th");
-  const td = document.createElement("td");
-  TBody.append(tr);
+  const guessCell = document.createElement("td");
+  const correctNumbersCell = document.createElement("td");
+  const correctPositionCell = document.createElement("td");
+  tBody.append(tr);
   tr.id = "test";
   tr.append(th);
   th.scope = "row";
-  th.innerHTML = guessAttempt;
-  tr.append(td);
-  td.innerHTML = guessForm.value;
+  th.innerText = guessAttempt;
+  guessCell.innerText = guessForm.value;
+  correctNumbersCell.innerText = correctNumbers;
+  correctPositionCell.innerText = correctPosition;
+  tr.append(guessCell);
+  tr.append(correctNumbersCell);
+  tr.append(correctPositionCell);
 }
-function logic() {
+function checkResult() {
+  let correctNumbers = 0
+  let correctPosition = 0
   if (chosenNum === hiddenNum) {
     console.log("begge nummer er riktig");
     notifications.innerText = `YOU WIN!!!`;
-  } else if (chosenNum[0] === hiddenNum[0]) {
-    console.log("Første Nummer er riktig, og riktig plass");
+    correctNumbers = 2
+    correctPosition = 2
+  } else if (chosenNum[0] === hiddenNum[0] || chosenNum[1] === hiddenNum[1]) {
+    console.log("Ett av nummerene er riktig, og riktig plass");
     notifications.innerText = `A number is on the correct spot`;
-  } else if (chosenNum[1] === hiddenNum[1]) {
-    console.log("Andre Nummer er riktig, og riktig plass");
-    notifications.innerText = `A number is on the correct spot`;
+    correctNumbers = 1
+    correctPosition = 1
   } else if (chosenNum[0] === hiddenNum[1] || chosenNum[1] === hiddenNum[0]) {
-    console.log("To Nummer er riktig, men på feil plass");
+    console.log("Ett Nummer er riktig, men på feil plass");
     notifications.innerText = `A number is correct, but not the right spot`;
+    correctNumbers = 1
+    correctPosition = 1
   } else {
     console.log("ingen er riktige");
   }
+  return [correctNumbers, correctPosition]
 }
 
 function turnOn() {
