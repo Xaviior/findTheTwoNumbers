@@ -53,7 +53,7 @@ function addLine() {
 function logic() {
   if (chosenNum === hiddenNum) {
     console.log("begge nummer er riktig");
-    notifications.innerText = `YOU WINN!!!`;
+    notifications.innerText = `YOU WIN!!!`;
   } else if (chosenNum[0] === hiddenNum[0]) {
     console.log("Første Nummer er riktig, og riktig plass");
     notifications.innerText = `A number is on the correct spot`;
