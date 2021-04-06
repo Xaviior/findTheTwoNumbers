@@ -1,4 +1,4 @@
-// Selectors
+// Selectors and holders :
 const generateNumberBtn = document.getElementById("genBtn");
 const submitBtn = document.getElementById("subBtn");
 const guessForm = document.querySelector("#guessNum");
@@ -14,9 +14,6 @@ function numbers() {
   return number;
   console.log(number);
 }
-
-turnOff();
-
 //buttons
 // Number generator
 generateNumberBtn.addEventListener("click", function (e) {
@@ -54,25 +51,20 @@ function addLine() {
 }
 
 function logic() {
-  if (chosenNum && hiddenNum === true) {
+  if (chosenNum === hiddenNum) {
     console.log("begge nummer er riktig");
     notifications.innerText = `YOU WINN!!!`;
-  }
-  if (chosenNum[0] === hiddenNum[0]) {
+  } else if (chosenNum[0] === hiddenNum[0]) {
     console.log("Første Nummer er riktig, og riktig plass");
     notifications.innerText = `A number is on the correct spot`;
-  }
-  if (chosenNum[1] === hiddenNum[1]) {
+  } else if (chosenNum[1] === hiddenNum[1]) {
     console.log("Andre Nummer er riktig, og riktig plass");
     notifications.innerText = `A number is on the correct spot`;
-  }
-  if (chosenNum[0] === hiddenNum[1]) {
-    console.log("Ett Nummer er riktig, men på feil plass");
+  } else if (chosenNum[0] === hiddenNum[1] || chosenNum[1] === hiddenNum[0]) {
+    console.log("To Nummer er riktig, men på feil plass");
     notifications.innerText = `A number is correct, but not the right spot`;
-  }
-  if (chosenNum[1] === hiddenNum[0]) {
-    console.log("Ett Nummer er riktig, men på feil plass");
-    notifications.innerText = `A number is correct, but not the right spot`;
+  } else {
+    console.log("ingen er riktige");
   }
 }
 
