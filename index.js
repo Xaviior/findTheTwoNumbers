@@ -31,6 +31,7 @@ generateNumberBtn.addEventListener("click", function (e) {
   hiddenNum = randNum.toString();
   notifications.innerText = `You have generated a new number`;
   document.getElementById("tableBody").innerHTML = "";
+  guessAttempt = null;
   turnOn();
 });
 // Reset btn
