@@ -43,7 +43,6 @@ resetBtn.addEventListener("click", function (e) {
 });
 
 // submitt btn
-
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const disAllowed = validate(guessForm.value);
