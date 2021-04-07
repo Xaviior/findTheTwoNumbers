@@ -37,6 +37,7 @@ resetBtn.addEventListener("click", function (e) {
   e.preventDefault();
   document.getElementById("tableBody").innerHTML = "";
   guessAttempt = null;
+  notifications.innerText = "";
   turnOff();
 });
 
