@@ -46,6 +46,15 @@ button {
   margin: 0.5rem;
 }
 
+#subBtn {
+  background-color: #bff1b8f2;
+}
+#resetBtn {
+  background-color: #f1b8b8f2;
+}
+#genBtn {
+  background-color: #f1d7b8f2;
+}
 input {
   border: none;
   /*   min-width: 8rem;
