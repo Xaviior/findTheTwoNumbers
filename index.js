@@ -10,6 +10,18 @@ let hiddenNum = null;
 let chosenNum = null;
 turnOff();
 
+// regex Validation
+const validate = (input) => {
+  const regex = /^\d{2}$/;
+  if (!regex.test(input)) {
+    return;
+  }
+  if (input < 10 || input > 99) {
+    return (notifications.innerText = "ONLY numbers from 10 - 99");
+  }
+  return false;
+};
+
 //buttons
 // Number generator
 generateNumberBtn.addEventListener("click", function (e) {
@@ -22,14 +34,19 @@ generateNumberBtn.addEventListener("click", function (e) {
 // Reset btn
 resetBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  location.reload();
+  /* location.reload(); */
+  document.getElementById("tableBody").innerHTML = "";
 });
 
 // submitt btn
 
 submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  guessForm.value.toString();
+  const disAllowed = validate(guessForm.value);
+  if (disAllowed) {
+    return (notifications.innerText = "The number must be from 10-99");
+  }
+  /* guessForm.value.toString(); */
   guessAttempt += 1;
   chosenNum = guessForm.value;
   const result = checkResult();
