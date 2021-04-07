@@ -58,7 +58,7 @@ function checkResult() {
   let correctNumbers = 0;
   let correctPosition = 0;
   if (chosenNum === hiddenNum) {
-    notifications.innerText = `YOU WIN!!!`;
+    notifications.innerText = `YOU WIN!!! Number of tries was ${guessAttempt} :)`;
     correctNumbers = 2;
     correctPosition = 2;
     turnOff();
@@ -73,7 +73,7 @@ function checkResult() {
   } else if (chosenNum[0] === hiddenNum[1] || chosenNum[1] === hiddenNum[0]) {
     notifications.innerText = `A number is correct, but not the right spot`;
     correctNumbers = 1;
-    correctPosition = 1;
+    correctPosition = 0;
   }
   return [correctNumbers, correctPosition];
 }
