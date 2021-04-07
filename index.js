@@ -14,10 +14,10 @@ turnOff();
 const validate = (input) => {
   const regex = /^\d{2}$/;
   if (!regex.test(input)) {
-    return;
+    return "Only numbers from 10 - 99";
   }
   if (input < 10 || input > 99) {
-    return (notifications.innerText = "ONLY numbers from 10 - 99");
+    return (notifications.innerText = "Only numbers from 10 - 99");
   }
   return false;
 };
@@ -44,7 +44,7 @@ submitBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const disAllowed = validate(guessForm.value);
   if (disAllowed) {
-    return (notifications.innerText = "The number must be from 10-99");
+    return (notifications.innerText = disAllowed);
   }
   /* guessForm.value.toString(); */
   guessAttempt += 1;
@@ -91,6 +91,8 @@ function checkResult() {
     notifications.innerText = `A number is correct, but not the right spot`;
     correctNumbers = 1;
     correctPosition = 0;
+  } else {
+    notifications.innerText = "None numbers is correct, try again!";
   }
   return [correctNumbers, correctPosition];
 }
