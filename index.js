@@ -5,6 +5,7 @@ const resetBtn = document.getElementById("resetBtn");
 const guessForm = document.querySelector("#guessNum");
 const notifications = document.getElementById("notifications-text");
 const tBody = document.getElementById("tableBody");
+const info = document.getElementById("info");
 let guessAttempt = null;
 let hiddenNum = null;
 let chosenNum = null;
@@ -103,10 +104,12 @@ function turnOn() {
   submitBtn.disabled = false;
   generateNumberBtn.disabled = true;
   resetBtn.disabled = false;
+  info.style.visibility = "hidden";
 }
 function turnOff() {
   guessForm.disabled = true;
   submitBtn.disabled = true;
   generateNumberBtn.disabled = false;
   resetBtn.disabled = true;
+  info.style.visibility = "visible";
 }
