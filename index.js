@@ -30,6 +30,7 @@ generateNumberBtn.addEventListener("click", function (e) {
   const randNum = Math.floor(Math.random() * 90) + 10;
   hiddenNum = randNum.toString();
   notifications.innerText = `You have generated a new number`;
+  document.getElementById("tableBody").innerHTML = "";
   turnOn();
 });
 // Reset btn
@@ -105,7 +106,8 @@ function turnOn() {
   submitBtn.disabled = false;
   generateNumberBtn.disabled = true;
   resetBtn.disabled = false;
-  info.style.visibility = "hidden";
+  /* info.style.visibility = "hidden"; */
+  fadeOutEffect();
 }
 function turnOff() {
   guessForm.disabled = true;
@@ -113,4 +115,17 @@ function turnOff() {
   generateNumberBtn.disabled = false;
   resetBtn.disabled = true;
   info.style.visibility = "visible";
+}
+function fadeOutEffect() {
+  const fadeTarget = document.getElementById("info");
+  const fadeEffect = setInterval(function () {
+    if (!fadeTarget.style.opacity) {
+      fadeTarget.style.opacity = 1;
+    }
+    if (fadeTarget.style.opacity > 0) {
+      fadeTarget.style.opacity -= 0.1;
+    } else {
+      clearInterval(fadeEffect);
+    }
+  }, 70);
 }
