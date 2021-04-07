@@ -34,8 +34,9 @@ generateNumberBtn.addEventListener("click", function (e) {
 // Reset btn
 resetBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  /* location.reload(); */
   document.getElementById("tableBody").innerHTML = "";
+  guessAttempt = null;
+  turnOff();
 });
 
 // submitt btn
@@ -101,9 +102,11 @@ function turnOn() {
   guessForm.disabled = false;
   submitBtn.disabled = false;
   generateNumberBtn.disabled = true;
+  resetBtn.disabled = false;
 }
 function turnOff() {
   guessForm.disabled = true;
   submitBtn.disabled = true;
   generateNumberBtn.disabled = false;
+  resetBtn.disabled = true;
 }
