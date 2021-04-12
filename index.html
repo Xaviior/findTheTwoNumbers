@@ -22,7 +22,7 @@
   <body>
     <header>
       <form id="newNum-resetBtn">
-        <button id="genBtn">New number</button>
+        <button id="genBtn">New Game</button>
         <button id="resetBtn">Reset</button>
       </form>
       <form action="guessNum">
@@ -32,6 +32,8 @@
           placeholder="Guess a number"
           style="text-align: center"
           id="guessNum"
+          min="10"
+          max="99"
         />
         <button id="subBtn">Submit</button>
       </form>
@@ -51,8 +53,6 @@
     <section id="info">
       <h1>Find The Two Numbers</h1>
       <p>The rulse are simple: find the two numbers between 10-99</p>
-      <p>"New number" generates a number from 10-99</p>
-      <p>"Reset" resets the game</p>
       <p>Guess a number and Submit</p>
       <p>Enjoy, Xaviior</p>
     </section>

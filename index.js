@@ -29,7 +29,7 @@ generateNumberBtn.addEventListener("click", function (e) {
   e.preventDefault();
   const randNum = Math.floor(Math.random() * 90) + 10;
   hiddenNum = randNum.toString();
-  notifications.innerText = `You have generated a new number`;
+  notifications.innerText = `You have a new number, good luck`;
   document.getElementById("tableBody").innerHTML = "";
   guessAttempt = null;
   turnOn();
@@ -64,7 +64,7 @@ function addLine(correctNumbers = 0, correctPosition = 0) {
   const guessCell = document.createElement("td");
   const correctNumbersCell = document.createElement("td");
   const correctPositionCell = document.createElement("td");
-  tBody.append(tr);
+  tBody.prepend(tr);
   tr.append(th);
   th.scope = "row";
   th.innerText = guessAttempt;
