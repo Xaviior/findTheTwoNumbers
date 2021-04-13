@@ -79,7 +79,7 @@ function checkResult() {
   let correctNumbers = 0;
   let correctPosition = 0;
   if (chosenNum === hiddenNum) {
-    notifications.innerText = `YOU WIN! The number was ${hiddenNum} and you did'it on the ${guessAttempt} attempt.`;
+    notifications.innerText = `YOU WIN! The number was ${hiddenNum} and you used ${guessAttempt} attempt.`;
     notifications.style.backgroundColor = "#f2f2f2";
     notifications.style.boxShadow = "3px 5px 10px rgba(94, 90, 90, 0.178";
     notifications.style.borderRadius = "0.3rem";
