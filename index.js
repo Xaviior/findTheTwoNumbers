@@ -32,6 +32,7 @@ generateNumberBtn.addEventListener("click", function (e) {
   notifications.innerText = `You have a new number, good luck`;
   document.getElementById("tableBody").innerHTML = "";
   guessAttempt = null;
+  tBody.style.opacity = "100%";
   turnOn();
 });
 // Reset btn
@@ -40,6 +41,7 @@ resetBtn.addEventListener("click", function (e) {
   document.getElementById("tableBody").innerHTML = "";
   guessAttempt = null;
   notifications.innerText = "";
+  tBody.style.opacity = "100%";
   turnOff();
 });
 
